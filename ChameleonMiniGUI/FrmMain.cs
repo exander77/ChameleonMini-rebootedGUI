@@ -313,7 +313,7 @@ namespace ChameleonMiniGUI
                     {
                         SendCommandWithoutResult($"UID{_cmdExtension}={uid}");
                     }
-                    else
+                    /*else
                     {
                         var tmpuid = "11223344";
                         if (selectedMode.StartsWith("MF_ULTRALIGHT"))
@@ -321,7 +321,7 @@ namespace ChameleonMiniGUI
                             tmpuid = "11223344556677";
                         }
                         SendCommandWithoutResult($"UID{_cmdExtension}={tmpuid}");
-                    }
+                    }*/
                 }
 
                 // Set MEMSIZE
@@ -1604,7 +1604,7 @@ namespace ChameleonMiniGUI
             }
 
             // if mode is ul then UID must be 7 bytes (14 hex digits) long
-            if (selectedMode.StartsWith("MF_ULTRALIGHT"))
+            if (selectedMode.StartsWith("MF_ULTRALIGHT") || selectedMode.StartsWith("MF_DESFIRE") || selectedMode.EndsWith("7B"))
             {
                 if (uid.Length == 14)
                 {
